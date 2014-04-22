@@ -1,0 +1,4 @@
+solr
+====
+
+FishSaying solr configures
