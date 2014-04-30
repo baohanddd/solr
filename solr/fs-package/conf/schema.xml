@@ -130,13 +130,12 @@
        "content_type": From the HTTP headers of incoming stream
        "resourcename": From SolrCell request param resource.name
    -->
-   <field name="title" type="text_mmseg" indexed="true" stored="true" required="true" />
-   <field name="subject" type="string" indexed="true" stored="true"/>
+   <field name="title" type="string" indexed="true" stored="true" required="true" />
    <field name="deleted" type="int" indexed="true" stored="true" />
    <field name="language" type="string" indexed="true" stored="true" />
    <field name="status" type="int" indexed="true" stored="true" />
-   <field name="modified" type="long" indexed="true" stored="true" />
-   <field name="created" type="long" indexed="true" stored="true" />
+   <field name="modified" type="date" indexed="true" stored="true" />
+   <field name="created" type="date" indexed="true" stored="true" />
 
    <!-- Store lat and lng -->
    <field name="store" type="location" indexed="true" stored="true" />
