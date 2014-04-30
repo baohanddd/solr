@@ -145,7 +145,7 @@
    <field name="isfree" type="int" indexed="true" stored="true" />
    <field name="score" type="float" indexed="true" stored="true" />
    <field name="checkout_total" type="int" indexed="true" stored="true" />
-   <field name="play_total" type="int" indexed="true" stored="true" />
+   <field name="play_total" type="float" indexed="true" stored="true" />
    <field name="verified_author" type="int" indexed="true" stored="true" />
    <field name="is_ad" type="int" indexed="true" stored="true" />
 
