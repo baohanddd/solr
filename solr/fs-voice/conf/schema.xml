@@ -138,9 +138,9 @@
    <field name="language" type="string" indexed="true" stored="true" />
    <field name="status" type="int" indexed="true" stored="true" />
    <field name="recommend" type="int" indexed="true" stored="true" />
-   <field name="modified" type="long" indexed="true" stored="true" />
-   <field name="approved" type="long" indexed="true" stored="true" />
-   <field name="status_modified" type="long" indexed="true" stored="true" />
+   <field name="modified" type="date" indexed="true" stored="true" />
+   <field name="approved" type="date" indexed="true" stored="true" />
+   <field name="status_modified" type="date" indexed="true" stored="true" />
 
    <field name="isfree" type="int" indexed="true" stored="true" />
    <field name="score" type="float" indexed="true" stored="true" />
