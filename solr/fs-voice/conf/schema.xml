@@ -149,7 +149,7 @@
    <field name="is_ad" type="int" indexed="true" stored="true" />
 
    <!-- Store lat and lng -->
-   <field name="store" type="location" indexed="true" stored="true" />
+   <field name="location" type="location" indexed="true" stored="true" />
 
    <!-- Main body of document extracted by SolrCell.
         NOTE: This field is not indexed by default, since it is also copied to "text"
