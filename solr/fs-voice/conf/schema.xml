@@ -131,7 +131,11 @@
        "resourcename": From SolrCell request param resource.name
    -->
    <field name="title" type="string" indexed="true" stored="true" required="true" />
-   <field name="tags" type="string" indexed="true" stored="true" multiValued="true"/>
+
+   <dynamicField name="tag*"  type="string"  indexed="true"  stored="true"/>
+   <field name="tags" type="string" indexed="true" stored="true" multiValued="true" />
+   <copyField source = "tag*" dest = "tags"/>
+
    <field name="deleted" type="int" indexed="true" stored="true" />
    <field name="user_id" type="string" indexed="true" stored="true" />
    <field name="language" type="string" indexed="true" stored="true" />
