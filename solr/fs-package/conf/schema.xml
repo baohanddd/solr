@@ -130,16 +130,18 @@
        "content_type": From the HTTP headers of incoming stream
        "resourcename": From SolrCell request param resource.name
    -->
-   <field name="title" type="string" indexed="true" stored="true" required="true" />
+   <field name="title" type="string" indexed="true" stored="true" />
+   <field name="status" type="int" indexed="true" stored="true" />
+   <field name="store" type="location" indexed="true" stored="true" />
+   <field name="voice_total" type="int" indexed="true" stored="true" />
+   <field name="voice_length_total" type="int" indexed="true" stored="true" />
+   <field name="favorite_total" type="int" indexed="true" stored="true" />
    <field name="deleted" type="int" indexed="true" stored="true" />
    <field name="language" type="string" indexed="true" stored="true" />
-   <field name="status" type="int" indexed="true" stored="true" />
+   <field name="refreshed" type="date" indexed="true" stored="true" />
    <field name="modified" type="date" indexed="true" stored="true" />
    <field name="created" type="date" indexed="true" stored="true" />
-
-   <!-- Store lat and lng -->
-   <field name="store" type="location" indexed="true" stored="true" />
-
+   
    <!-- Main body of document extracted by SolrCell.
         NOTE: This field is not indexed by default, since it is also copied to "text"
         using copyField below. This is to save space. Use this field for returning and
