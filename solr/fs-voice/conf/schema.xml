@@ -151,6 +151,13 @@
    <field name="play_total" type="float" indexed="true" stored="true" />
    <field name="verified_author" type="int" indexed="true" stored="true" />
    <field name="is_ad" type="int" indexed="true" stored="true" />
+   <!-- address component  -->
+   <field name="ac_postal_code" type="string" indexed="true" stored="true" />
+   <field name="ac_country" type="string" indexed="true" stored="true" />
+   <field name="ac_administrative_area_level_1" type="string" indexed="true" stored="true" />
+   <field name="ac_locality" type="string" indexed="true" stored="true" />
+   <field name="ac_sublocality" type="string" indexed="true" stored="true" />
+   <field name="ac_route" type="string" indexed="true" stored="true" />
 
    <!-- Store lat and lng -->
    <field name="store" type="location" indexed="true" stored="true" />
