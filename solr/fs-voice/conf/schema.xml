@@ -131,7 +131,7 @@
        "resourcename": From SolrCell request param resource.name
    -->
    <field name="title" type="text_mmseg" indexed="true" stored="true" required="true" />
-   <field name="title_max" type="text_mmseg_max" indexed="true" stored="true" required="true" />
+   <field name="title_max" type="text_smart" indexed="true" stored="true" />
 
    <dynamicField name="tag*"  type="string"  indexed="true"  stored="true"/>
    <field name="tags" type="string" indexed="true" stored="true" multiValued="true" />
@@ -716,7 +716,7 @@
    <!-- some examples for different languages (generally ordered by ISO code) -->
 
 
-	<!-- fieldType name="text_smart" class="solr.TextField" positionIncrementGap="100">
+	<fieldType name="text_smart" class="solr.TextField" positionIncrementGap="100">
       <analyzer type="index">
         <tokenizer class="solr.SmartChineseSentenceTokenizerFactory"/>
         <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" enablePositionIncrements="true" />
@@ -730,22 +730,19 @@
         <filter class="solr.LowerCaseFilterFactory"/>
         <filter class="solr.SmartChineseWordTokenFilterFactory"/>
       </analyzer>
-    </fieldType -->
+    </fieldType>
 
 	<fieldType name="text_mmseg" class="solr.TextField" positionIncrementGap="100">
 	  <analyzer>
-		<tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="simple" dicPath="dic"/>
-		<filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" enablePositionIncrements="true" />
-		<filter class="solr.LowerCaseFilterFactory"/>
-		<filter class="solr.NGramFilterFactory" minGramSize="1" maxGramSize="10"/>
+		<tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word" dicPath="dic"/>
 	  </analyzer>
 	</fieldType>
 
-    <fieldType name="text_mmseg_max" class="solr.TextField" positionIncrementGap="100" >  
+    <!-- fieldType name="text_mmseg_max" class="solr.TextField" positionIncrementGap="100" >  
         <analyzer>  
             <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word" dicPath="dic"/>  
         </analyzer>  
-    </fieldType>
+    </fieldType -->
     
     <!--fieldtype name="textComplex" class="solr.TextField" positionIncrementGap="100">
         <analyzer>
