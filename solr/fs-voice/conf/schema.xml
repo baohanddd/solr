@@ -130,7 +130,8 @@
        "content_type": From the HTTP headers of incoming stream
        "resourcename": From SolrCell request param resource.name
    -->
-   <field name="title" type="string" indexed="true" stored="true" required="true" />
+   <field name="title" type="text_mmseg" indexed="true" stored="true" required="true" />
+   <field name="title_max" type="text_mmseg_max" indexed="true" stored="true" required="true" />
 
    <dynamicField name="tag*"  type="string"  indexed="true"  stored="true"/>
    <field name="tags" type="string" indexed="true" stored="true" multiValued="true" />
@@ -732,19 +733,35 @@
     </fieldType -->
 
 	<fieldType name="text_mmseg" class="solr.TextField" positionIncrementGap="100">
-	  <analyzer type="index">
-		<tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word" dicPath="dic"/>
-		<filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" enablePositionIncrements="true" />
-		<filter class="solr.LowerCaseFilterFactory"/>
-		<filter class="solr.NGramFilterFactory" minGramSize="1" maxGramSize="10"/>
-	  </analyzer>
-	  <analyzer type="query">
-		<tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word" dicPath="dic"/>
+	  <analyzer>
+		<tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="simple" dicPath="dic"/>
 		<filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" enablePositionIncrements="true" />
 		<filter class="solr.LowerCaseFilterFactory"/>
 		<filter class="solr.NGramFilterFactory" minGramSize="1" maxGramSize="10"/>
 	  </analyzer>
 	</fieldType>
+
+    <fieldType name="text_mmseg_max" class="solr.TextField" positionIncrementGap="100" >  
+        <analyzer>  
+            <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word" dicPath="dic"/>  
+        </analyzer>  
+    </fieldType>
+    
+    <!--fieldtype name="textComplex" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="complex" dicPath="dic"/>
+        </analyzer>
+    </fieldtype>
+    <fieldtype name="textMaxWord" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word" />
+        </analyzer>
+    </fieldtype>
+    <fieldtype name="text_mmseg" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="simple" dicPath="/data/solr/example/solr/fs-voice/fishsaying.dic" />
+        </analyzer>
+    </fieldtype-->
 
  </types>
   

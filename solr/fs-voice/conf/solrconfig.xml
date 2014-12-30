@@ -883,6 +883,11 @@
      </lst>
   </requestHandler>
 
+  <requestHandler name="/mmseg4j" class="com.chenlb.mmseg4j.solr.MMseg4jHandler" >
+      <lst name="defaults">
+        <str name="dicPath">dic</str>
+      </lst>
+  </requestHandler>
 
   <!-- realtime get handler, guaranteed to return the latest stored fields of
        any document, without the need to commit or open a new searcher.  The
